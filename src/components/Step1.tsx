@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { allCountries } from "./country";
+import {BsFillExclamationSquareFill}  from 'react-icons/bs'
 
 const validationSchema = yup.object().shape({
   username: yup
@@ -89,7 +90,7 @@ const SignupPage = (props:Props) => {
             <div className="ml-2"> Review</div>
           </div>
         </div>
-        <div className="max-w-md p-6 bg-[#817DA4] rounded-lg shadow-lg bg-brand w-[80%] mr-[20%]">
+        <div className="max-w-md p-6 bg-[#817DA4] rounded-lg shadow-lg bg-brand w-[80%] mr-[20%] ">
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-4">
               <label htmlFor="username" className="block text-white">
@@ -110,7 +111,10 @@ const SignupPage = (props:Props) => {
                 onBlur={formik.handleBlur}
               />
               {formik.touched.username && formik.errors.username && (
-                <p className="text-red-500 mt-1">{formik.errors.username}</p>
+                <div className="flex justify-between">
+                  <div className="text-[#D8242A] mt-1">{formik.errors.username}</div>
+                  <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-2 -translate-y-7 transition-all duration-300 ease-in-out'/>
+                </div>
               )}
             </div>
             <div className="mb-4">
@@ -132,7 +136,10 @@ const SignupPage = (props:Props) => {
                 onBlur={formik.handleBlur}
               />
               {formik.touched.email && formik.errors.email && (
-                <p className="text-[#D8242A] mt-1">{formik.errors.email}</p>
+                <div className="flex justify-between">
+                <div className="text-[#D8242A] mt-1">{formik.errors.email}</div>
+                <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-2 -translate-y-7 transition-all duration-300 ease-in-out'/>
+              </div>
               )}
             </div>
             <div className="mb-4">
@@ -154,7 +161,10 @@ const SignupPage = (props:Props) => {
                 onBlur={formik.handleBlur}
               />
               {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-                <p className="text-[#D8242A] mt-1">{formik.errors.phoneNumber}</p>
+                <div className="flex justify-between">
+                <div className="text-[#D8242A] mt-1">{formik.errors.phoneNumber}</div>
+                <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-2 -translate-y-7 transition-all duration-300 ease-in-out'/>
+              </div>
               )}
             </div>
             <div className="mb-4">
@@ -181,7 +191,10 @@ const SignupPage = (props:Props) => {
                 ))}
               </select>
               {formik.touched.country && formik.errors.country && (
-                <p className="text-[#D8242A] mt-1">{formik.errors.country}</p>
+                <div className="flex justify-between">
+                <div className="text-[#D8242A] mt-1">{formik.errors.country}</div>
+                <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-5 -translate-y-7 transition-all duration-300 ease-in-out'/>
+              </div>
               )}
             </div>
 

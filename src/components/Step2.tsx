@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import React from "react";
+import {BsFillExclamationSquareFill}  from 'react-icons/bs'
 
 const validationSchema = yup.object().shape({
   password: yup
@@ -85,7 +86,10 @@ const {formData,setFormData,nextStep}= props
                 onBlur={formik.handleBlur}
               />
               {formik.touched.password && formik.errors.password && (
-                <p className="text-[#D8242A] mt-1">{formik.errors.password}</p>
+                <div className="flex justify-between">
+                <div className="text-[#D8242A] mt-1">{formik.errors.password}</div>
+                <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-2 -translate-y-7 transition-all duration-300 ease-in-out'/>
+              </div>
               )}
             </div>
             <div className="mb-4">
@@ -108,9 +112,10 @@ const {formData,setFormData,nextStep}= props
               />
               {formik.touched.repeatPassword &&
                 formik.errors.repeatPassword && (
-                  <p className="text-[#D8242A] mt-1">
-                    {formik.errors.repeatPassword}
-                  </p>
+                  <div className="flex justify-between">
+                  <div className="text-[#D8242A] mt-1">{formik.errors.repeatPassword}</div>
+                  <BsFillExclamationSquareFill className='text-[#D8242A] text-right mr-2 -translate-y-7 transition-all duration-300 ease-in-out'/>
+                </div>
                 )}
             </div>
             <button
